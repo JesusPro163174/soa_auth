@@ -1,0 +1,33 @@
+<div class="login-wrapper top-space" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Register</mat-card-title>
+        </mat-card-header>
+
+        <form [formGroup]="formGroup" class="example-form">
+
+            <mat-card-content>
+                <mat-form-field class="example-full-width">
+                    <input type="text" value="" formControlName="name"  matInput placeholder="Nombre">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput value="" formControlName="phone" name="phone" placeholder="Telefono">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput value="" formControlName="email" name="email" placeholder="Email">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput type="password" value=""  formControlName="password" name="password" placeholder="Password">
+                </mat-form-field>
+            </mat-card-content>
+
+            <button [disabled]="formGroup.invalid"  (click)="save()" mat-stroked-button color="accent" class="btn-block text-center">
+                <span *ngIf="!adding">Registrar</span>
+                <mat-spinner *ngIf="adding"></mat-spinner>
+            </button>
+            <div class="top-space text-right">
+                <a routerLink="/login" class="link text-black" >Login</a>
+            </div>
+        </form>
+    </mat-card>
+</div>
