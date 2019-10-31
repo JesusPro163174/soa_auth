@@ -38,6 +38,8 @@ export class RegisterComponent implements OnInit {
         const user = this.formGroup.value;
         const md5 = new Md5();
         user['token'] = md5.appendStr(user.email).end();
+        user['two_step'] = false;
+        user['status_two_step'] = 'inactive';
         this.userS.add(user).then(res => this.registerSuccess(), error => this.registerBad());
     }
 

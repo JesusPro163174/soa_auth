@@ -3,6 +3,7 @@ import { AngularFirestore,AngularFirestoreCollection,DocumentChangeAction } from
 import { IUser,UStatus } from '../interfaces/iuser';
 import { Observable, } from 'rxjs';
 import * as firebase from 'firebase/app';
+import { importExpr } from '@angular/compiler/src/output/output_ast';
 @Injectable({
     providedIn: 'root'
 })
@@ -70,18 +71,21 @@ export class UserService {
             token:token,
             email:user.email
         });
-        //buscar si hay un email registrado con el email dado
-        /*this.setCollectionOnlyEmail(user.email);
+    }
 
-        //obtener el usuario
+    activateTwoStep(twoStep,user,user_id){
+        const activate = this.afs.collection('twoSteps');
+        activate.add(twoStep);
+        user['two_step'] = true;
+        this.activateAccount(user,user_id);
+        localStorage.setItem('auth',JSON.stringify(user));
+    }
 
-        return this.userColletion.snapshotChanges().subscribe(actions =>{
-            actions.map(items => {
-                //;
-                return items.payload.doc.data();
-            })
-        })
-
-        //;*/
+    verify(code,user_id){
+        console.log(code);
+        console.log(user_id)
+        return this.afs.collection('twoSteps',(ref)=>{
+            return ref.where('user_id','==',107950).where('code','==','UFYDAFuTaTwRDxTIjCKX');
+        }).snapshotChanges();
     }
 }

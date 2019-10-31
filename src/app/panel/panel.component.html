@@ -1,1 +1,29 @@
-<p>panel works!</p>
+<div class="login-wrapper top-space" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Tus datos</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <mat-nav-list>
+                <a mat-list-item>
+                    <strong>Nombre: </strong> <span style="margin-left: 5px;">{{user.name}}</span>
+                </a>
+                <a mat-list-item>
+                    <strong>Email: </strong> <span style="margin-left: 5px;">{{user.email}}</span>
+                </a>
+                <a mat-list-item>
+                    <strong>Telefono: </strong> <span style="margin-left: 5px;">{{user.phone}}</span>
+                </a>
+                <a style="text-decoration: underline;" mat-list-item>
+                    <span *ngIf="user.two_step">Tienes habilitado la autentificacion por dos pasos.</span>
+                    <span (click)="OnTwoStep()" *ngIf="!user.two_step">Habilitar Autentificacion por dos pasos</span>
+                </a>
+                <a (click)="logout()" style="text-decoration: underline;" mat-list-item>
+                    Salir
+                </a>
+            </mat-nav-list>
+        </mat-card-content>
+
+    </mat-card>
+</div>

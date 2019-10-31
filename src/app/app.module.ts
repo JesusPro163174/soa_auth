@@ -24,6 +24,7 @@ import { RegisterSuccessComponent } from './components/register-success/register
 import { ToActivateComponent } from './to-activate/to-activate.component';
 import { RecoverPasswrdComponent } from './recover-passwrd/recover-passwrd.component';
 import { PanelComponent } from './panel/panel.component';
+import { CodeComponent } from './code/code.component';
 
 @NgModule({
     declarations: [
@@ -35,7 +36,8 @@ import { PanelComponent } from './panel/panel.component';
         RegisterSuccessComponent,
         ToActivateComponent,
         RecoverPasswrdComponent,
-        PanelComponent
+        PanelComponent,
+        CodeComponent
     ],
     imports: [
         BrowserModule,

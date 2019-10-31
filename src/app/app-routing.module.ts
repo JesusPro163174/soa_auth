@@ -6,6 +6,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { RegisterSuccessComponent } from './components/register-success/register-success.component';
 import { ToActivateComponent } from './to-activate/to-activate.component';
 import { RecoverPasswrdComponent } from './recover-passwrd/recover-passwrd.component';
+import { PanelComponent } from './panel/panel.component';
+import { CodeComponent } from './code/code.component';
 
 const routes: Routes = [
     { 
@@ -36,6 +38,14 @@ const routes: Routes = [
     {
         path:'recover-password/:token',
         component:RecoverPasswrdComponent
+    },
+    {
+        path:'panel',
+        component:PanelComponent
+    },
+    {
+        path:'code',
+        component:CodeComponent
     }
 ];
 

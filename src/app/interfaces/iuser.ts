@@ -10,4 +10,5 @@ export interface IUser {
     phone?:string;
     createdAt?:string;
     token?:string;
+    two_step?:boolean;
 }
